@@ -1,9 +1,9 @@
 "use client";
 import { GradualSpacing } from "./ui/GradualSpacing";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema } from "@/data";
+// import { z } from "zod";
+// import { useForm } from "react-hook-form";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { contactSchema } from "@/data";
 import { ShineBorder } from "./ui/ShineBorder";
 import Link from "next/link";
 
