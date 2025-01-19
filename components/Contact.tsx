@@ -18,21 +18,21 @@ function Contact() {
     resolver: zodResolver(contactSchema),
   });
 
-  const handleContact = async () => {
-    try {
-      await fetch("api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(getValues()),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    } catch (error) {
-      console.error("Error sending contact request:", error);
-    }
-  };
+  // const handleContact = async () => {
+  //   try {
+  //     await fetch("api/send", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(getValues()),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => console.log(data));
+  //   } catch (error) {
+  //     console.error("Error sending contact request:", error);
+  //   }
+  // };
 
   return (
     <div id="contact" className="container">
