@@ -8,15 +8,15 @@ import { ShineBorder } from "./ui/ShineBorder";
 import Link from "next/link";
 
 function Contact() {
-  type ContactType = z.infer<typeof contactSchema>;
-  const {
-    handleSubmit,
-    register,
-    getValues,
-    formState: { errors, isSubmitting },
-  } = useForm<ContactType>({
-    resolver: zodResolver(contactSchema),
-  });
+  // type ContactType = z.infer<typeof contactSchema>;
+  // const {
+  //   handleSubmit,
+  //   register,
+  //   getValues,
+  //   formState: { errors, isSubmitting },
+  // } = useForm<ContactType>({
+  //   resolver: zodResolver(contactSchema),
+  // });
 
   // const handleContact = async () => {
   //   try {
@@ -136,7 +136,7 @@ function Contact() {
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
           <form
-            onSubmit={handleSubmit(handleContact)}
+            // onSubmit={handleSubmit(handleContact)}
             className="space-y-4 w-full p-8 rounded-sm bg-[#0E162B] text-gray-50"
           >
             <div className="flex gap-5 items-center justify-center flex-col sm:flex-row">
@@ -151,14 +151,14 @@ function Contact() {
                   id="firstName"
                   type="text"
                   placeholder="Ex. amr"
-                  {...register("firstName")}
+                  // {...register("firstName")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {errors?.firstName && (
+                {/* {errors?.firstName && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.firstName?.message}
                   </p>
-                )}
+                )} */}
               </div>
 
               <div className="flex-1 w-full">
@@ -172,14 +172,14 @@ function Contact() {
                   id="lastName"
                   type="text"
                   placeholder="Ex. abdo"
-                  {...register("lastName")}
+                  // {...register("lastName")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {errors?.lastName && (
+                {/* {errors?.lastName && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.lastName?.message}
                   </p>
-                )}
+                )} */}
               </div>
             </div>
             <div className="flex gap-5 items-center justify-center flex-col sm:flex-row">
@@ -194,14 +194,14 @@ function Contact() {
                   id="email"
                   type="email"
                   placeholder="Ex. amr@example.com"
-                  {...register("email")}
+                  // {...register("email")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {errors && errors?.email && (
+                {/* {errors && errors?.email && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.email?.message}
                   </p>
-                )}
+                )} */}
               </div>
 
               <div className="flex-1 w-full">
@@ -215,14 +215,14 @@ function Contact() {
                   id="phoneNumber"
                   type="text"
                   placeholder="Ex. +201021798849"
-                  {...register("phoneNumber")}
+                  // {...register("phoneNumber")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {errors && errors?.phoneNumber && (
+                {/* {errors && errors?.phoneNumber && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.phoneNumber?.message}
                   </p>
-                )}
+                )} */}
               </div>
             </div>
 
@@ -237,14 +237,14 @@ function Contact() {
                 id="subject"
                 type="text"
                 placeholder="Ex. Message Title"
-                {...register("subject")}
+                // {...register("subject")}
                 className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
               />
-              {errors && errors?.subject && (
+              {/* {errors && errors?.subject && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors?.subject?.message}
                 </p>
-              )}
+              )} */}
             </div>
 
             <div>
@@ -258,22 +258,24 @@ function Contact() {
                 id="message"
                 rows={6}
                 placeholder="Ex. Hello, I'd like to work with you!"
-                {...register("message")}
+                // {...register("message")}
                 className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
               />
-              {errors && errors?.message && (
+              {/* {errors && errors?.message && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors?.message?.message}
                 </p>
-              )}
+              )} */}
             </div>
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              // disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-[#A07CFE] to-[#da4478] text-white py-3 px-4 rounded-[12px] shadow focus:outline-none"
             >
-              {isSubmitting ? (
+                Send Message
+
+              {/* {isSubmitting ? (
                 <>
                   <svg
                     aria-hidden="true"
@@ -294,8 +296,7 @@ function Contact() {
                   Sending ...
                 </>
               ) : (
-                "Send Message"
-              )}
+              )} */}
             </button>
           </form>
         </ShineBorder>
