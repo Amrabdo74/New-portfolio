@@ -100,7 +100,17 @@ export const projects = [
     sourceCode: "https://github.com/Amrabdo74",
   },
   {
-    id: 5,
+    id: 6,
+    title: "Najez Soft - Software Solutions Company",
+    des: "Official website for Najez Soft, a software solutions company offering various services and products. Developed using modern web technologies including React, React Router, Redux Toolkit, Axios, Bootstrap, and React Helmet for SEO optimization.",
+    img: "/najez.png",
+    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+    link: "https://najezsoft.com/",
+    sourceCode: "https://github.com/Amrabdo74",
+  }
+,  
+  {
+    id: 6,
     title: "Grocery-App",
     des: "E-commerce website and admin dashboard. Developed using React, React Router, Axios, Redux Toolkit, and Bootstrap.",
     img: "/grocery-app.png",
@@ -109,7 +119,7 @@ export const projects = [
     sourceCode: "https://github.com/Amrabdo74/GroceryStore",
   },
   {
-    id: 6,
+    id: 7,
     title: "LinkedIn-Clone",
     des: "LinkedIn website clone with the ability to post images, text, and video. Developed using React, React Router, Redux Toolkit, Bootstrap, and Firebase.",
     img: "/linkedin-clone.png",
@@ -118,7 +128,7 @@ export const projects = [
     sourceCode: "https://github.com/Amrabdo74/Linkedin",
   },
   {
-    id: 7,
+    id: 8,
     title: "Netflix-Clone",
     des: "Netflix website clone showcasing Trending, Popular, Top Rated, and Upcoming movies. Developed using React, React Router, Redux, Bootstrap, and Firebase.",
     img: "/netflix-clone.png",
