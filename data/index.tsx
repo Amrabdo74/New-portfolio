@@ -69,7 +69,7 @@ export const projects = [
     des: "Healthcare platform for managing appointments, medical records, and patient services. Developed using React, Redux Toolkit, Bootstrap, Node.js, and MongoDB.",
     img: "/ulmcare.png",
     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg", "/nodejs.svg", "/mongodb.svg"],
-    link: "https://ulmcare.com/logo.jpg",
+    link: "/ulmcare.jpg",
     sourceCode: "https://github.com/Amrabdo74/ulmcare",
   },
   {
