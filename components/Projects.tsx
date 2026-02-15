@@ -15,13 +15,14 @@ function Projects() {
           {projects.map((project) => (
             <MagicCard key={project.id}>
               <div className="flex flex-col items-center w-full h-full transform hover:shadow-xl transition-shadow duration-500">
-                <div className="relative w-full h-80 rounded-sm overflow-hidden">
+                <div className="relative w-full h-52 sm:h-64 md:h-72 lg:h-80 rounded-sm overflow-hidden bg-[#0C0E23]">
                   <Image
                     src={project.img}
                     alt={project.title}
                     fill
                     priority
-                    className="rounded w-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="rounded w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="pt-5">
@@ -31,30 +32,30 @@ function Projects() {
                   <p className="mt-3 text-sm text-white-100 line-clamp-4 h-[80px]">
                     {project.des}
                   </p>
-                  <div className="flex justify-between items-center gap-x-3 mt-5">
-                    <div className="flex -space-x-1 overflow-hidden ps-1 py-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mt-5">
+                    <div className="flex -space-x-1 overflow-hidden ps-1 py-2 shrink-0">
                       {project.iconsList?.map((icon, index) => (
                         <div
                           key={index}
-                          className="border rounded-full bg-gradient-to-r from-[#04071D] to-[#0C0E23] lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                          className="border rounded-full bg-gradient-to-r from-[#04071D] to-[#0C0E23] lg:w-10 lg:h-10 w-7 h-7 sm:w-8 sm:h-8 flex justify-center items-center shrink-0"
                           style={{
                             transform: `translateX(-${5 * index + 2}px)`,
                           }}
                         >
-                          <img src={icon} alt="icon5" className="p-2" />
+                          <img src={icon} alt="" className="p-1.5 sm:p-2 w-full h-full object-contain" />
                         </div>
                       ))}
                     </div>
-                    <div className="flex items-center justify-center gap-4 text-white-100 text-xs sm:text-lg">
+                    <div className="flex items-center gap-4 text-white-100 text-sm sm:text-lg shrink-0">
                       <Link
                         href={project.sourceCode}
-                        className="flex items-center justify-center gap-1 hover:text-purple"
+                        className="flex items-center justify-center gap-1 hover:text-purple whitespace-nowrap"
                       >
                         GitHub <FaLocationArrow />
                       </Link>
                       <Link
                         href={project.link}
-                        className="flex items-center justify-center gap-1 hover:text-purple"
+                        className="flex items-center justify-center gap-1 hover:text-purple whitespace-nowrap"
                       >
                         Demo <FaLocationArrow />
                       </Link>

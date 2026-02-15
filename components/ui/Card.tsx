@@ -77,7 +77,7 @@ export function MagicCard({
         className
       )}
     >
-      <div className="relative z-10 lg:min-h-[32.5rem] h-[25rem]">
+      <div className="relative z-10 min-h-0 lg:min-h-[32.5rem] lg:h-[25rem]">
         {children}
       </div>
       <motion.div
