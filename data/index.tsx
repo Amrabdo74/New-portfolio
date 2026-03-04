@@ -235,26 +235,31 @@ export const skills = [
 export const socialMedia = [
   {
     id: 1,
+    name: "GitHub",
     link: "https://github.com/Amrabdo74",
     icon: <FaGithub />,
   },
   {
     id: 2,
+    name: "LinkedIn",
     link: "https://www.linkedin.com/in/amr-abdo74/",
     icon: <FaLinkedin />,
   },
   {
     id: 3,
+    name: "Facebook",
     link: "https://www.facebook.com/profile.php?id=100007260193308",
     icon: <FaFacebook />,
   },
   {
     id: 4,
+    name: "WhatsApp",
     link: "https://wa.me/+201021798849",
     icon: <FaWhatsapp />,
   },
   {
     id: 5,
+    name: "Instagram",
     link: "https://www.instagram.com/amr__abdo74/",
     icon: <FaInstagram />,
   },

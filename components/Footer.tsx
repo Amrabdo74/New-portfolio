@@ -38,7 +38,9 @@ function Footer() {
               <Link
                 href={info.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 key={info.id}
+                aria-label={info.name}
                 className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
               >
                 {info.icon}
