@@ -35,26 +35,27 @@ export function AnimatedGridPattern({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [squares, setSquares] = useState<{ id: number; pos: number[] }[]>([]);
 
-  function getPos() {
-    return [
-      Math.floor((Math.random() * dimensions.width) / width),
-      Math.floor((Math.random() * dimensions.height) / height),
-    ];
-  }
-
   // Adjust the generateSquares function to return objects with an id, x, and y
   const generateSquares = useCallback(
     (count: number) => {
+      const getPos = () => [
+        Math.floor((Math.random() * dimensions.width) / width),
+        Math.floor((Math.random() * dimensions.height) / height),
+      ];
       return Array.from({ length: count }, (_, i) => ({
         id: i,
         pos: getPos(),
       }));
     },
-    [dimensions.width, dimensions.height]
+    [dimensions.width, dimensions.height, width, height]
   );
 
   // Function to update a single square's position
   const updateSquarePosition = (id: number) => {
+    const getPos = () => [
+      Math.floor((Math.random() * dimensions.width) / width),
+      Math.floor((Math.random() * dimensions.height) / height),
+    ];
     setSquares((currentSquares) =>
       currentSquares.map((sq) =>
         sq.id === id

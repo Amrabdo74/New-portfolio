@@ -27,6 +27,11 @@ function Projects() {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      if (!db) {
+        setLoading(false);
+        setError("Could not load projects right now.");
+        return;
+      }
       try {
         const projectsRef = collection(db, "projects");
         const q = query(projectsRef, orderBy("order", "asc"));

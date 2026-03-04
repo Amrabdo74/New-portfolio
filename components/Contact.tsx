@@ -28,6 +28,10 @@ function Contact() {
   const handleContact = async (values: ContactType) => {
     setSubmitMessage(null);
     setSubmitError(null);
+    if (!db) {
+      setSubmitError("Something went wrong, please try again.");
+      return;
+    }
     try {
       await addDoc(collection(db, "messages"), {
         ...values,

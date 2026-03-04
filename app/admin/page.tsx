@@ -168,6 +168,10 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
+    if (!auth) {
+      setUser(null);
+      return;
+    }
     const unsub = onAuthStateChanged(auth, (current) => {
       setUser(current);
     });
@@ -176,12 +180,14 @@ export default function AdminPage() {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user || !db) return;
 
     const load = async () => {
+      const firestore = db;
+      if (!firestore) return;
       setLoading(true);
       try {
-        const projectsRef = collection(db, "projects");
+        const projectsRef = collection(firestore, "projects");
         const q = query(projectsRef, orderBy("order", "asc"));
         const projectsSnap = await getDocs(q);
         const projectsData: Project[] = projectsSnap.docs.map((d) => ({
@@ -189,7 +195,7 @@ export default function AdminPage() {
           ...(d.data() as Omit<Project, "id">),
         }));
 
-        const messagesRef = collection(db, "messages");
+        const messagesRef = collection(firestore, "messages");
         const messagesSnap = await getDocs(messagesRef);
         const messagesData: Message[] = messagesSnap.docs.map((d) => ({
           id: d.id,
@@ -209,6 +215,10 @@ export default function AdminPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthError(null);
+    if (!auth) {
+      setAuthError("Firebase Auth is not configured.");
+      return;
+    }
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err: unknown) {
@@ -218,12 +228,12 @@ export default function AdminPage() {
   };
 
   const handleLogout = async () => {
-    await signOut(auth);
+    if (auth) await signOut(auth);
   };
 
   const handleCreateProject = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) return;
+    if (!user || !db) return;
     if (!newProject.img?.trim()) {
       setUploadError("Please upload an image (Cloudinary) or paste an image URL.");
       return;
@@ -264,7 +274,7 @@ export default function AdminPage() {
   };
 
   const handleUpdateProject = async (project: Project) => {
-    if (!user) return;
+    if (!user || !db) return;
     const ref = doc(db, "projects", project.id);
     await updateDoc(ref, {
       title: project.title,
@@ -278,13 +288,13 @@ export default function AdminPage() {
   };
 
   const handleDeleteProject = async (id: string) => {
-    if (!user) return;
+    if (!user || !db) return;
     await deleteDoc(doc(db, "projects", id));
     setProjects((prev) => prev.filter((p) => p.id !== id));
   };
 
   const handleDeleteMessage = async (id: string) => {
-    if (!user) return;
+    if (!user || !db) return;
     await deleteDoc(doc(db, "messages", id));
     setMessages((prev) => prev.filter((m) => m.id !== id));
   };

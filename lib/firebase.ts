@@ -1,6 +1,10 @@
+import type { FirebaseApp } from "firebase/app";
 import { getApp, getApps, initializeApp } from "firebase/app";
+import type { Auth } from "firebase/auth";
 import { getAuth } from "firebase/auth";
+import type { Firestore } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
+import type { FirebaseStorage } from "firebase/storage";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -12,9 +16,13 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// Only initialize Firebase when API key is present (avoids auth/invalid-api-key during build/SSG)
+let app: FirebaseApp | null = null;
+if (firebaseConfig.apiKey) {
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+}
 
-export const db = getFirestore(app);
-export const auth = getAuth(app);
-export const storage = getStorage(app);
+export const db: Firestore | null = app ? getFirestore(app) : null;
+export const auth: Auth | null = app ? getAuth(app) : null;
+export const storage: FirebaseStorage | null = app ? getStorage(app) : null;
 
