@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useEffect, useState } from "react";
 import {
   addDoc,
@@ -19,14 +18,6 @@ import {
   User,
 } from "firebase/auth";
 import { auth, db } from "@/lib/firebase";
-
-export const metadata: Metadata = {
-  title: "Admin | Amr Abdo Portfolio",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
 
 // Tech icons available for projects (path = public URL or /path.svg)
 const AVAILABLE_ICONS = [
