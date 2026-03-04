@@ -2,6 +2,7 @@ import { FaArrowRight, FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/MagicButton";
 import { socialMedia } from "@/data";
 import Link from "next/link";
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -47,10 +48,11 @@ function Footer() {
         </div>
       </footer>
       <div className="w-full absolute left-0 -bottom-0 lg:-bottom-32 min-h-60 z-0">
-        <img
+        <Image
           src="/footer-grid.svg"
           alt="grid"
-          className="w-full h-full opacity-50 "
+          fill
+          className="w-full h-full opacity-50 object-cover"
         />
       </div>
     </div>

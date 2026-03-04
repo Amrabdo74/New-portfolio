@@ -122,15 +122,16 @@ function Projects() {
                           {project.iconsList?.map((icon, index) => (
                             <div
                               key={index}
-                              className="border rounded-full bg-gradient-to-r from-[#04071D] to-[#0C0E23] lg:w-10 lg:h-10 w-7 h-7 sm:w-8 sm:h-8 flex justify-center items-center shrink-0"
+                              className="border rounded-full bg-gradient-to-r from-[#04071D] to-[#0C0E23] lg:w-10 lg:h-10 w-7 h-7 sm:w-8 sm:h-8 flex justify-center items-center shrink-0 relative"
                               style={{
                                 transform: `translateX(-${5 * index + 2}px)`,
                               }}
                             >
-                              <img
+                              <Image
                                 src={icon}
                                 alt=""
-                                className="p-1.5 sm:p-2 w-full h-full object-contain"
+                                fill
+                                className="p-1.5 sm:p-2 object-contain"
                               />
                             </div>
                           ))}

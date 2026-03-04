@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   addDoc,
   collection,
@@ -210,7 +211,7 @@ export default function AdminPage() {
     setAuthError(null);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setAuthError("Invalid credentials or Firebase Auth not configured.");
     }
@@ -247,7 +248,7 @@ export default function AdminPage() {
       };
 
       const ref = await addDoc(collection(db, "projects"), payload);
-      setProjects((prev) => [...prev, { ...(payload as any), id: ref.id }]);
+      setProjects((prev) => [...prev, { ...payload, id: ref.id } as Project]);
       setNewProject({
         title: "",
         des: "",
@@ -459,12 +460,13 @@ export default function AdminPage() {
                   onClick={() => toggleProjectCard(project.id)}
                   className="w-full flex items-center gap-4 p-4 text-left hover:bg-white/5 transition-colors"
                 >
-                  <div className="w-16 h-12 rounded-md bg-black-100 shrink-0 overflow-hidden">
+                  <div className="w-16 h-12 rounded-md bg-black-100 shrink-0 overflow-hidden relative">
                     {project.img ? (
-                      <img
+                      <Image
                         src={project.img}
                         alt=""
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gray-500 text-xs">
