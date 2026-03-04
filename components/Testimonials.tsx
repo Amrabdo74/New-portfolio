@@ -2,10 +2,11 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "./ui/Marquee";
 import SparklesText from "./ui/SpaklesText";
 import { GradualSpacing } from "./ui/GradualSpacing";
-import { reviews } from "@/data";
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+const reviews: { id: number; name: string; body: string }[] = [];
+
+const firstRow = reviews.slice(0, Math.ceil(reviews.length / 2));
+const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
 const ReviewCard = ({ name, body }: { name: string; body: string }) => {
   return (
