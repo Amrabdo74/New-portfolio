@@ -29,159 +29,159 @@ import { z } from "zod";
 export const cvUrl =
   "https://drive.google.com/file/d/1khp3Ph8gCyudKUGOTx-8Y8BZDZs-zLUw/view";
 
-export const reviews = [
-  {
-    id: 1,
-    name: "د. على",
-    body: "بصراحة شغلكم أكتر من ممتاز، سعدت بالتعامل معكم جداً والله ياشباب فعلاً شغل متقن جدًا، شكراً مرة ثانية وأكيد ماراح يكون آخر تعامل إن شاء الله.",
-  },
-  {
-    id: 2,
-    name: "عبدالرحمن",
-    body: "التعامل معاك فعلا راقي جدًا وفعلا فاهم انت بتعمل اي كويس، تسلم إيدك والله يابشمهندس.",
-  },
-  {
-    id: 3,
-    name: "محمد",
-    body: "مشفتش حد بيهتم بالتفاصيل زيك، كل حاجة متظبطة آخر حاجة.",
-  },
-  {
-    id: 4,
-    name: "د. هند",
-    body: "أنا مبسوطة جدًا بالشغل مع حضرتك، الحمد لله فوق توقعاتي بكتير.",
-  },
-  {
-    id: 5,
-    name: "محمود",
-    body: "إنت من أكتر الناس المحترمة اللي اتعاملت معاها، ربنا يوفقك.",
-  },
-  {
-    id: 6,
-    name: "د. إيهاب",
-    body: "شغل جميل جدًا وبتسمع كل الملاحظات وتنفذها بنفس الجودة.",
-  },
-];
+// export const reviews = [
+//   {
+//     id: 1,
+//     name: "د. على",
+//     body: "بصراحة شغلكم أكتر من ممتاز، سعدت بالتعامل معكم جداً والله ياشباب فعلاً شغل متقن جدًا، شكراً مرة ثانية وأكيد ماراح يكون آخر تعامل إن شاء الله.",
+//   },
+//   {
+//     id: 2,
+//     name: "عبدالرحمن",
+//     body: "التعامل معاك فعلا راقي جدًا وفعلا فاهم انت بتعمل اي كويس، تسلم إيدك والله يابشمهندس.",
+//   },
+//   {
+//     id: 3,
+//     name: "محمد",
+//     body: "مشفتش حد بيهتم بالتفاصيل زيك، كل حاجة متظبطة آخر حاجة.",
+//   },
+//   {
+//     id: 4,
+//     name: "د. هند",
+//     body: "أنا مبسوطة جدًا بالشغل مع حضرتك، الحمد لله فوق توقعاتي بكتير.",
+//   },
+//   {
+//     id: 5,
+//     name: "محمود",
+//     body: "إنت من أكتر الناس المحترمة اللي اتعاملت معاها، ربنا يوفقك.",
+//   },
+//   {
+//     id: 6,
+//     name: "د. إيهاب",
+//     body: "شغل جميل جدًا وبتسمع كل الملاحظات وتنفذها بنفس الجودة.",
+//   },
+// ];
 
-export const projects = [
-    {
-    id: 0,
-    title: "Ulmcare",
-    des: "Healthcare platform for managing appointments, medical records, and patient services. Developed using React, Redux Toolkit, Bootstrap, Node.js, and MongoDB.",
-    img: "/ulmcare.png",
-    iconsList: ["/react.svg", "/js.svg", "/tailwind.svg", "/redux.svg", "/framer-motion.svg", "/axios.svg"],
-    link: "https://ulmcare.com/",
-    sourceCode: "https://github.com/Amrabdo74/ulmcare",
-  },
-  {
-    id: 10,
-    title: "Ulm Connect",
-    des: "Connectivity and services platform. Developed with modern web technologies for a seamless user experience.",
-    img: "/ulmconnect.png",
-    iconsList: ["/react.svg", "/js.svg", "/tailwind.svg", "/redux.svg", "/framer-motion.svg", "/axios.svg"],
-    link: "https://ulmconnect.com/",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 11,
-    title: "Miqdadi Group",
-    des: "Corporate website for Miqdadi Group. Developed using React, Redux Toolkit, Bootstrap, and modern web technologies.",
-    img: "/miqdadigroup.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
-    link: "https://www.miqdadigroup.com/",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 1,
-    title: "Flosscap",
-    des: "E-commerce website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
-    img: "/flosscap.png",
-    iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
-    link: "https://flosscap.net/ar",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 2,
-    title: "Gulf International",
-    des: "Website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
-    img: "/gulfinternational.png",
-    iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
-    link: "https://gulfinternational.sa/ar",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 3,
-    title: "Nourgy",
-    des: "E-commerce website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
-    img: "/nourgy.png",
-    iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
-    link: "https://nourgy.com/ar",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 4,
-    title: "Higher Institute of Management and Information Technology in Kafr El-Sheikh",
-    des: "Platform for viewing staff data, institute information, and a blog for students. Developed using React, React Router, Context API, Axios, Redux, i18next, Bootstrap, React Helmet, React Query, React Toastify, React Share, Swiper, Recharts, React Floating WhatsApp, FullCalendar, and AOS.",
-    img: "/himit.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
-    link: "https://himit-kfs.edu.eg/",
-    sourceCode: "https://github.com/Amrabdo74",
-  },
-  {
-    id: 6,
-    title: "Najez Soft - Software Solutions Company",
-    des: "Official website for Najez Soft, a software solutions company offering various services and products. Developed using modern web technologies including React, React Router, Redux Toolkit, Axios, Bootstrap, and React Helmet for SEO optimization.",
-    img: "/najez.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
-    link: "https://najezsoft.com/",
-    sourceCode: "https://github.com/Amrabdo74",
-  }
-,  
-  {
-    id: 6,
-    title: "Grocery-App",
-    des: "E-commerce website and admin dashboard. Developed using React, React Router, Axios, Redux Toolkit, and Bootstrap.",
-    img: "/grocery-app.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
-    link: "https://grocery-hxgr.vercel.app/",
-    sourceCode: "https://github.com/Amrabdo74/GroceryStore",
-  },
-  {
-    id: 7,
-    title: "LinkedIn-Clone",
-    des: "LinkedIn website clone with the ability to post images, text, and video. Developed using React, React Router, Redux Toolkit, Bootstrap, and Firebase.",
-    img: "/linkedin-clone.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg", "/firebase.svg"],
-    link: "https://linkedin-gamma-dun.vercel.app/",
-    sourceCode: "https://github.com/Amrabdo74/Linkedin",
-  },
-  {
-    id: 8,
-    title: "Netflix-Clone",
-    des: "Netflix website clone showcasing Trending, Popular, Top Rated, and Upcoming movies. Developed using React, React Router, Redux, Bootstrap, and Firebase.",
-    img: "/netflix-clone.png",
-    iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg", "/firebase.svg"],
-    link: "https://netflex-536e3.web.app/",
-    sourceCode: "https://github.com/Amrabdo74/netflex",
-  },
-  // {
-  //   id: 8,
-  //   title: "CRUD-APP",
-  //   des: "Website for creating, reading, updating, and deleting data. Developed using React, React Router, Redux, and Bootstrap.",
-  //   img: "/crud-app.png",
-  //   iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
-  //   link: "",
-  //   sourceCode: "https://github.com/Amrabdo74",
-  // },
-  {
-    id: 9,
-    title: "Plants-APP",
-    des: "Website for plants. Developed using Bootstrap4, HTML5, CSS3, and OwlCarousel.",
-    img: "/plants-app.png",
-    iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg"],
-    link: "",
-    sourceCode: "https://github.com/Amrabdo74/plants_temp",
-  },
-];
+// export const projects = [
+//     {
+//     id: 0,
+//     title: "Ulmcare",
+//     des: "Healthcare platform for managing appointments, medical records, and patient services. Developed using React, Redux Toolkit, Bootstrap, Node.js, and MongoDB.",
+//     img: "/ulmcare.png",
+//     iconsList: ["/react.svg", "/js.svg", "/tailwind.svg", "/redux.svg", "/framer-motion.svg", "/axios.svg"],
+//     link: "https://ulmcare.com/",
+//     sourceCode: "https://github.com/Amrabdo74/ulmcare",
+//   },
+//   {
+//     id: 10,
+//     title: "Ulm Connect",
+//     des: "Connectivity and services platform. Developed with modern web technologies for a seamless user experience.",
+//     img: "/ulmconnect.png",
+//     iconsList: ["/react.svg", "/js.svg", "/tailwind.svg", "/redux.svg", "/framer-motion.svg", "/axios.svg"],
+//     link: "https://ulmconnect.com/",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 11,
+//     title: "Miqdadi Group",
+//     des: "Corporate website for Miqdadi Group. Developed using React, Redux Toolkit, Bootstrap, and modern web technologies.",
+//     img: "/miqdadigroup.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+//     link: "https://www.miqdadigroup.com/",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 1,
+//     title: "Flosscap",
+//     des: "E-commerce website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
+//     img: "/flosscap.png",
+//     iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
+//     link: "https://flosscap.net/ar",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 2,
+//     title: "Gulf International",
+//     des: "Website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
+//     img: "/gulfinternational.png",
+//     iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
+//     link: "https://gulfinternational.sa/ar",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 3,
+//     title: "Nourgy",
+//     des: "E-commerce website and admin dashboard. Developed using HTML5, CSS3, JavaScript, Bootstrap5, PHP, and MySQL.",
+//     img: "/nourgy.png",
+//     iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg", "/php-svgrepo-com.svg"],
+//     link: "https://nourgy.com/ar",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 4,
+//     title: "Higher Institute of Management and Information Technology in Kafr El-Sheikh",
+//     des: "Platform for viewing staff data, institute information, and a blog for students. Developed using React, React Router, Context API, Axios, Redux, i18next, Bootstrap, React Helmet, React Query, React Toastify, React Share, Swiper, Recharts, React Floating WhatsApp, FullCalendar, and AOS.",
+//     img: "/himit.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+//     link: "https://himit-kfs.edu.eg/",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   },
+//   {
+//     id: 6,
+//     title: "Najez Soft - Software Solutions Company",
+//     des: "Official website for Najez Soft, a software solutions company offering various services and products. Developed using modern web technologies including React, React Router, Redux Toolkit, Axios, Bootstrap, and React Helmet for SEO optimization.",
+//     img: "/najez.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+//     link: "https://najezsoft.com/",
+//     sourceCode: "https://github.com/Amrabdo74",
+//   }
+// ,  
+//   {
+//     id: 6,
+//     title: "Grocery-App",
+//     des: "E-commerce website and admin dashboard. Developed using React, React Router, Axios, Redux Toolkit, and Bootstrap.",
+//     img: "/grocery-app.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+//     link: "https://grocery-hxgr.vercel.app/",
+//     sourceCode: "https://github.com/Amrabdo74/GroceryStore",
+//   },
+//   {
+//     id: 7,
+//     title: "LinkedIn-Clone",
+//     des: "LinkedIn website clone with the ability to post images, text, and video. Developed using React, React Router, Redux Toolkit, Bootstrap, and Firebase.",
+//     img: "/linkedin-clone.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg", "/firebase.svg"],
+//     link: "https://linkedin-gamma-dun.vercel.app/",
+//     sourceCode: "https://github.com/Amrabdo74/Linkedin",
+//   },
+//   {
+//     id: 8,
+//     title: "Netflix-Clone",
+//     des: "Netflix website clone showcasing Trending, Popular, Top Rated, and Upcoming movies. Developed using React, React Router, Redux, Bootstrap, and Firebase.",
+//     img: "/netflix-clone.png",
+//     iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg", "/firebase.svg"],
+//     link: "https://netflex-536e3.web.app/",
+//     sourceCode: "https://github.com/Amrabdo74/netflex",
+//   },
+//   // {
+//   //   id: 8,
+//   //   title: "CRUD-APP",
+//   //   des: "Website for creating, reading, updating, and deleting data. Developed using React, React Router, Redux, and Bootstrap.",
+//   //   img: "/crud-app.png",
+//   //   iconsList: ["/react.svg", "/js.svg", "/bootstrap-4.svg", "/redux.svg"],
+//   //   link: "",
+//   //   sourceCode: "https://github.com/Amrabdo74",
+//   // },
+//   {
+//     id: 9,
+//     title: "Plants-APP",
+//     des: "Website for plants. Developed using Bootstrap4, HTML5, CSS3, and OwlCarousel.",
+//     img: "/plants-app.png",
+//     iconsList: ["/html.svg", "/css.svg", "/js.svg", "/bootstrap-4.svg"],
+//     link: "",
+//     sourceCode: "https://github.com/Amrabdo74/plants_temp",
+//   },
+// ];
 const date = new Date();
 const yearsOfExperience = date.getFullYear() - 2023;
 const projectsCompleted = 15;
@@ -269,11 +269,9 @@ export const contactSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   phoneNumber: z
     .string()
-    .min(4, { message: "Phone number is too short" })
-    .regex(
-      /^\+\d{1,3}\d{4,14}$/,
-      "Phone Number Format: +[country code][number] (e.g., +1234567890)"
-    ),
+    .min(3, { message: "Phone number is too short" })
+    // Allow common phone formats (digits, +, spaces, dashes, parentheses)
+    .regex(/^[0-9+\-\s()]+$/, "Phone number contains invalid characters"),
   subject: z.string(),
   message: z.string().min(1, { message: "Message is required" }),
 });

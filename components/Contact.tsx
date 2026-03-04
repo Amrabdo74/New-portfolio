@@ -1,38 +1,45 @@
 "use client";
+import { useState } from "react";
 import { GradualSpacing } from "./ui/GradualSpacing";
-// import { z } from "zod";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { contactSchema } from "@/data";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactSchema } from "@/data";
 import { ShineBorder } from "./ui/ShineBorder";
 import Link from "next/link";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+
+type ContactType = z.infer<typeof contactSchema>;
 
 function Contact() {
-  // type ContactType = z.infer<typeof contactSchema>;
-  // const {
-  //   handleSubmit,
-  //   register,
-  //   getValues,
-  //   formState: { errors, isSubmitting },
-  // } = useForm<ContactType>({
-  //   resolver: zodResolver(contactSchema),
-  // });
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactType>({
+    resolver: zodResolver(contactSchema),
+  });
 
-  // const handleContact = async () => {
-  //   try {
-  //     await fetch("api/send", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(getValues()),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => console.log(data));
-  //   } catch (error) {
-  //     console.error("Error sending contact request:", error);
-  //   }
-  // };
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleContact = async (values: ContactType) => {
+    setSubmitMessage(null);
+    setSubmitError(null);
+    try {
+      await addDoc(collection(db, "messages"), {
+        ...values,
+        createdAt: serverTimestamp(),
+      });
+      setSubmitMessage("Your message has been sent successfully.");
+      reset();
+    } catch (error) {
+      console.error("Error saving message:", error);
+      setSubmitError("Something went wrong, please try again.");
+    }
+  };
 
   return (
     <div id="contact" className="container">
@@ -136,7 +143,7 @@ function Contact() {
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
           <form
-            // onSubmit={handleSubmit(handleContact)}
+            onSubmit={handleSubmit(handleContact)}
             className="space-y-4 w-full p-8 rounded-sm bg-[#0E162B] text-gray-50"
           >
             <div className="flex gap-5 items-center justify-center flex-col sm:flex-row">
@@ -151,14 +158,14 @@ function Contact() {
                   id="firstName"
                   type="text"
                   placeholder="Ex. amr"
-                  // {...register("firstName")}
+                  {...register("firstName")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {/* {errors?.firstName && (
+                {errors?.firstName && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.firstName?.message}
                   </p>
-                )} */}
+                )}
               </div>
 
               <div className="flex-1 w-full">
@@ -172,14 +179,14 @@ function Contact() {
                   id="lastName"
                   type="text"
                   placeholder="Ex. abdo"
-                  // {...register("lastName")}
+                  {...register("lastName")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {/* {errors?.lastName && (
+                {errors?.lastName && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.lastName?.message}
                   </p>
-                )} */}
+                )}
               </div>
             </div>
             <div className="flex gap-5 items-center justify-center flex-col sm:flex-row">
@@ -194,14 +201,14 @@ function Contact() {
                   id="email"
                   type="email"
                   placeholder="Ex. amr@example.com"
-                  // {...register("email")}
+                  {...register("email")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {/* {errors && errors?.email && (
+                {errors?.email && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.email?.message}
                   </p>
-                )} */}
+                )}
               </div>
 
               <div className="flex-1 w-full">
@@ -215,14 +222,14 @@ function Contact() {
                   id="phoneNumber"
                   type="text"
                   placeholder="Ex. +201021798849"
-                  // {...register("phoneNumber")}
+                  {...register("phoneNumber")}
                   className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
                 />
-                {/* {errors && errors?.phoneNumber && (
+                {errors?.phoneNumber && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors?.phoneNumber?.message}
                   </p>
-                )} */}
+                )}
               </div>
             </div>
 
@@ -237,14 +244,14 @@ function Contact() {
                 id="subject"
                 type="text"
                 placeholder="Ex. Message Title"
-                // {...register("subject")}
+                {...register("subject")}
                 className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
               />
-              {/* {errors && errors?.subject && (
+              {errors?.subject && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors?.subject?.message}
                 </p>
-              )} */}
+              )}
             </div>
 
             <div>
@@ -258,46 +265,30 @@ function Contact() {
                 id="message"
                 rows={6}
                 placeholder="Ex. Hello, I'd like to work with you!"
-                // {...register("message")}
+                {...register("message")}
                 className="mt-1 block w-full px-4 py-3 rounded-[10px] bg-black-100 shadow-sm focus:outline-none sm:text-sm"
               />
-              {/* {errors && errors?.message && (
+              {errors?.message && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors?.message?.message}
                 </p>
-              )} */}
+              )}
             </div>
 
             <button
               type="submit"
-              // disabled={isSubmitting}
+              disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-[#A07CFE] to-[#da4478] text-white py-3 px-4 rounded-[12px] shadow focus:outline-none"
             >
-                Send Message
-
-              {/* {isSubmitting ? (
-                <>
-                  <svg
-                    aria-hidden="true"
-                    className="inline w-5 h-5 animate-spin dark:text-zinc-700 fill-gray-200 mr-2"
-                    viewBox="0 0 101 101"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                      fill="currentFill"
-                    />
-                  </svg>
-                  Sending ...
-                </>
-              ) : (
-              )} */}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+
+            {submitMessage && (
+              <p className="text-sm text-green-400">{submitMessage}</p>
+            )}
+            {submitError && (
+              <p className="text-sm text-red-400">{submitError}</p>
+            )}
           </form>
         </ShineBorder>
       </div>
